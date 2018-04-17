@@ -10,7 +10,7 @@ VERSION = "{}.{}.{}".format(MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION)
 
 setup(
     name = 'autograpefruit',
-    packages = ['agf','agf.gmaps','agf.streetview'],
+    packages = ['agf','agf.gmaps','agf.photos','agf.streetview'],
     package_dir = {'': 'src/python'},
     version = VERSION,
     description = 'Tools for performing automated neighborhood analysis from open-source data.',
