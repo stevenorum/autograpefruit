@@ -1,0 +1,5 @@
+Pillow
+googlemaps
+opencv-python
+numpy
+requests
