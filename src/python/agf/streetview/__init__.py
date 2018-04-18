@@ -26,6 +26,7 @@ class Streetviewer(object):
         for k in kwargs:
             if kwargs.get(k) != None:
                 params[k] = kwargs[k]
+        params["location"] = location
         url = "https://maps.googleapis.com/maps/api/streetview?size={width}x{height}&location={location}&key={key}&fov={fov}".format(**params)
         for k in ["pitch","heading"]:
             if params.get(k) != None:
@@ -43,6 +44,7 @@ class Streetviewer(object):
     def get_picture_to_file(self, location, filepath, **kwargs):
         info = self.get_picture(location, **kwargs)
         file_hash = hashlib.md5(info["body"]).hexdigest()
+        info["hash"] = file_hash
         if os.path.isdir(filepath):
             filepath = os.path.join(filepath, "{}.jpg".format(file_hash))
         with open(filepath, "wb") as f:

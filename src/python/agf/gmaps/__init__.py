@@ -97,6 +97,9 @@ def canonical_address_from_result(result):
         return addr
     return None
 
+def update_address_number(adr, increment):
+    return " ".join([str(int(adr.split(" ")[0]) + increment)] + adr.split(" ")[1:])
+
 class GMapper(object):
 
     def __init__(self, key):
