@@ -31,5 +31,18 @@ def assert_dicts_equal(expected, actual, name=None):
         print("FAILURE\nExpected:\n{}\nActual:\n{}".format(expected_blob, actual_blob))
         return False
 
+def assert_lists_equal(expected, actual, name=None):
+    if name:
+        print(name)
+    if len(expected) != len(actual):
+        print("FAILURE\nExpected length: {}\nActual length: {}\n".format(len(expected), len(acual)))
+        return False
+    for i in range(len(expected)):
+        if expected[i] != actual[i]:
+            print("FAILURE\nExpected[{0}]: {1}\nActual[{0}]: {2}\n".format(i, expected[i], actual[i]))
+            return False
+    print("success")
+    return True
+
 def data_path(fname):
     return os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", fname))
